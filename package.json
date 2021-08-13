@@ -1,0 +1,34 @@
+{
+  "type": "module",
+  "name": "nimbus-initialacquisition-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-query-boolean": "^2.0.0",
+    "express-rate-limit": "^5.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.1.0",
+    "mongoose": "^5.13.7",
+    "nodemon": "^2.0.12",
+    "web3": "^1.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --experimental-json-modules index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StasKazikin/NimbusInitialAcquisition-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StasKazikin/NimbusInitialAcquisition-backend/issues"
+  },
+  "homepage": "https://github.com/StasKazikin/NimbusInitialAcquisition-backend#readme",
+  "description": ""
+}
