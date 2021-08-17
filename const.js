@@ -6,3 +6,8 @@ export const networks = {
   bsc_main: 'https://bsc-dataseed.binance.org/',
   bsc_test: 'https://data-seed-prebsc-2-s3.binance.org:8545',
 }
+
+export const contracts = {
+  eth_contract: '0xEEA92913d8AA554a102ED5B4F0A6206E6D8d59D5',
+  bnb_contract: '0xb99f831a0a17ecD4221c907714B44A1931446832',
+}
