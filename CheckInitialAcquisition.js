@@ -2,6 +2,7 @@ import Web3 from 'web3'
 import { networks } from './const.js'
 
 const bscMain = new Web3(networks.bsc_main)
+const bscTest = new Web3(networks.bsc_test)
 
 let count = 0
 const checkEvents = async (contract, event, fromBlock, toBlock) => {
@@ -23,17 +24,17 @@ const checkEvents = async (contract, event, fromBlock, toBlock) => {
 }
 
 export const checkInitialAcquisition = async (chainId, contract, event) => {
-  if (chainId === 'BSC_MAIN') {
-    const latestBlock = await bscMain.eth.getBlockNumber()
+  if (chainId === 'BSC_TEST') {
+    const latestBlock = await bscTest.eth.getBlockNumber()
     console.log('latestBlock', latestBlock)
     let result = []
-    for (let idx = 8140000; idx < latestBlock; idx += 5000) {
-      if (idx == 8500000) idx = 8700000
-      if (idx == 9200000) idx = 9300000
-      // if (idx == 9400000) idx = 10000000
+    for (let idx = 14200000; idx < latestBlock; idx += 5000) {
       const temp = await checkEvents(contract, event, idx, idx + 5000)
       result = [...result, ...temp]
     }
+    // // const recipients = result.map((event) => event.returnValues.nbuRecipient)
+    // // const uniqueRecipients = Array.from(new Set(recipients))
+    // return uniqueRecipients
     // console.log('result', result)
     return result
   } else {
