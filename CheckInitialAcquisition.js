@@ -24,13 +24,14 @@ const checkEvents = async (contract, event, fromBlock, toBlock) => {
 }
 
 export const checkInitialAcquisition = async (chainId, contract, event) => {
-  if (chainId === 'BSC_TEST') {
-    const latestBlock = await bscTest.eth.getBlockNumber()
+  if (chainId === 'BSC_MAIN') {
+    const latestBlock = await bscMain.eth.getBlockNumber()
     console.log('latestBlock', latestBlock)
     let result = []
-    for (let idx = 14200000; idx < latestBlock; idx += 5000) {
+    for (let idx = 14330551; idx < latestBlock; idx += 5000) {
       const temp = await checkEvents(contract, event, idx, idx + 5000)
       result = [...result, ...temp]
+      console.log(temp)
     }
     // // const recipients = result.map((event) => event.returnValues.nbuRecipient)
     // // const uniqueRecipients = Array.from(new Set(recipients))

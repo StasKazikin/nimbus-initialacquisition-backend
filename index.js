@@ -2,6 +2,7 @@ import Web3 from 'web3'
 import abiEth from './abi/abiEth.json'
 import abiBsc from './abi/abiBsc.json'
 import snakeEggsShopABI from './abi/snakeEggsShopABI.json'
+import nftManagerABI from './abi/nftManagerABI.json'
 import { networks, contracts } from './const.js'
 import checkInitialAcquisition from './CheckInitialAcquisition.js'
 
@@ -14,7 +15,10 @@ const contractEthMain = new ETH_MAIN.eth.Contract(abiEth, contracts.eth_contract
 const contractEthTest = new ETH_TEST.eth.Contract(abiEth, contracts.eth_contract)
 const contractBscMain = new BSC_MAIN.eth.Contract(abiBsc, contracts.bnb_contract)
 const contractBscTest = new BSC_TEST.eth.Contract(abiBsc, contracts.bnb_contract)
-const contractEggShopBscTest = new BSC_TEST.eth.Contract(snakeEggsShopABI, contracts.egg_shop_contract)
+const contractEggShopBscTest = new BSC_TEST.eth.Contract(snakeEggsShopABI, contracts.egg_shop_contract_test)
+const contractEggShopBscMain = new BSC_MAIN.eth.Contract(snakeEggsShopABI, contracts.egg_shop_contract_main)
+const nftManagerTest = new BSC_TEST.eth.Contract(nftManagerABI, contracts.nft_manager_contract)
+const nftManagerMain = new BSC_MAIN.eth.Contract(nftManagerABI, contracts.nft_manager_contract)
 
 // const wallet1 = '0x5888c09B825Fb9DE54A675896A991E953814e9cC'
 // const wallet2 = '0x85b4Ce35C2e36aC6405455A3D3Ae947972864f66'
@@ -25,4 +29,15 @@ const contractEggShopBscTest = new BSC_TEST.eth.Contract(snakeEggsShopABI, contr
 //   console.log(arr.includes(walletNew))
 // )
 // checkInitialAcquisition('BSC_MAIN', contractBscMain, 'BuyNbuForToken').then((arr) => console.log(arr))
-checkInitialAcquisition('BSC_TEST', contractEggShopBscTest, 'BuyEgg').then((arr) => console.log(arr))
+checkInitialAcquisition('BSC_MAIN', contractEggShopBscMain, 'BuyEgg').then((arr) => console.log(arr))
+// checkInitialAcquisition('BSC_MAIN', nftManagerMain, 'HatchEgg').then((arr) => console.log(arr))
+
+// const today = new Date().getDate()
+
+// console.log('today', today)
+
+// const yesterday = today - 1
+
+// console.log('yesterday', yesterday)
+
+// console.log('date', new Date(yesterday))
